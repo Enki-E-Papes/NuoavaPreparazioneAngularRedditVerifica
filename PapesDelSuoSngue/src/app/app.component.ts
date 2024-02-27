@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,21 +6,11 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  numero :number;
-  @Input() numeriEstratti: number[];
-  constructor(){
-    this.numeriEstratti = [];
+  numero : number; 
+  estrazzione(numerot: HTMLInputElement):boolean{ //numerot e il cocomero del html
+    this.numero = Number(numerot.value) //lo trasformo numerot in un numero
+    console.log(this.numero) //value =prende solo il dato inserito
+    return false //serve per il codice a far capire se caricare o no il codice
   }
-
-  
-  visualizzaNumero() {
-    if (!this.numeriEstratti.includes(this.numero)) {
-      console.log(this.numero);
-      this.numeriEstratti.push(this.numero);
-      console.log('Numeri estratti: ', this.numeriEstratti);
-    } else {
-      console.log('Il numero è già stato estratto.');
-    }
   }
-}
 
